@@ -20,6 +20,7 @@ function App() {
         );
       } else {
         setFiltedCountries(Countries);
+        
       }
     }, 200),
     [Countries]
@@ -32,13 +33,16 @@ function App() {
       
     }
     fetchdata()
-
+    
   }, [])
   return (
     <div className='App'>
       <Header countries={Countries.length} satisfied={FiltedCountries.length}/>
       <SearchComponent searchFunc={search} Countries={FiltedCountries}/>
-      <GraphComponent Countries={FiltedCountries}/>
+      <GraphComponent languages={FiltedCountries.map((c)=>c.languages?.map((l)=>l.name)).flat().reduce((acc,element)=>{
+      acc[element] = (acc[element] ||0)+1
+      return acc
+    },{})}/>
     </div>
   )
 }
