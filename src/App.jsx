@@ -29,7 +29,8 @@ function App() {
     const fetchdata = async () => {
       const getdata = await getCountries()
       setCountries(await getdata)
-
+      setFiltedCountries(getdata);
+      
     }
     fetchdata()
 
