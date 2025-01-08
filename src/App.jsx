@@ -2,10 +2,9 @@ import { useState,useEffect ,useCallback } from 'react'
 import debounce from "lodash.debounce";
 import './App.css'
 import Header from './components/Header/Header'
-import SearchContainer from './components/SearchContainer/SearchContainer'
-import { Input } from "@/components/ui/input"
-import { Button } from './components/ui/button'
 import getCountries from './services/api'
+import SearchComponent from './components/SearchComponent/SearchComponent';
+import GraphComponent from './components/GraphComponent/GraphComponent';
 function App() {
 
   const [Countries, setCountries] = useState([])
@@ -38,16 +37,8 @@ function App() {
   return (
     <div className='App'>
       <Header countries={Countries.length} satisfied={FiltedCountries.length}/>
-      <Input type="text"
-       placeholder="Search for a Country" 
-       style={{padding:'26px',fontSize:'16pt',maxWidth:'420px'}}
-       onChange={search}/>
-
-       <Button  variant="outline" size="lg"  >
-       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column-big"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><rect x="15" y="5" width="4" height="12" rx="1"/><rect x="7" y="8" width="4" height="9" rx="1"/></svg>
-       </Button>
-
-       <SearchContainer result={FiltedCountries}/>
+      <SearchComponent searchFunc={search} Countries={FiltedCountries}/>
+      <GraphComponent Countries={FiltedCountries}/>
     </div>
   )
 }
