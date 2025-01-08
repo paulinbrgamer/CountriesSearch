@@ -9,7 +9,10 @@ function App() {
 
   const [Countries, setCountries] = useState([])
   const [FiltedCountries, setFiltedCountries] = useState([])
-
+  const lg = FiltedCountries.map((c)=>c.languages?.map((l)=>l.name)).flat().reduce((acc,element)=>{
+    acc[element] = (acc[element] ||0)+1
+    return acc
+  },{})
   const search = useCallback(
     debounce((e) => {
       if (e.target.value) {
@@ -39,9 +42,9 @@ function App() {
     <div className='App'>
       <Header countries={Countries.length} satisfied={FiltedCountries.length}/>
       <SearchComponent searchFunc={search} Countries={FiltedCountries}/>
-      <GraphComponent languages={FiltedCountries.map((c)=>c.languages?.map((l)=>l.name)).flat().reduce((acc,element)=>{
-      acc[element] = (acc[element] ||0)+1
-      return acc
+      <GraphComponent languages={Object.entries(lg).sort(([,a],[,b])=>b-a).reduce((obj,[key,value])=>{
+      obj[key] = value
+      return obj  
     },{})}/>
     </div>
   )
