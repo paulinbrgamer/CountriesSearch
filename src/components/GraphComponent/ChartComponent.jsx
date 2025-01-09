@@ -13,7 +13,8 @@ export default function ChartComponent({ data ,maxValue}) {
             <div style={{ width: 'clamp(100px,80%,600px)' }}>
                 {
                     Object.keys(data).map((keys, idx) => idx < 10 ?
-                        <div style={{ backgroundColor: 'orange', padding: '16px', borderRadius: '4px', margin: '4px', width: `${100-()}%` }} key={keys}>
+                        <div style={{ backgroundColor: 'orange', padding: '16px', borderRadius: '4px', margin: '4px', width: `${(100*data[keys])/size}%` }} key={keys}>
+
                         </div> : null)
                 }
             </div>

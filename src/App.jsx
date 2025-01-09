@@ -9,7 +9,7 @@ function App() {
 
   const [Countries, setCountries] = useState([])
   const [FiltedCountries, setFiltedCountries] = useState([])
-  const lg = FiltedCountries.map((c) => c.languages?.map((l) => l.name)).flat().reduce((acc, element) => {
+  const lg = Countries.map((c) => c.languages?.map((l) => l.name)).flat().reduce((acc, element) => {
     acc[element] = (acc[element] || 0) + 1
     return acc
   }, {})
