@@ -1,13 +1,13 @@
 import './style.css'
 import '../../App.css'
-import { useState } from 'react'
+import { useState,forwardRef } from 'react'
 import { Button } from '../ui/button'
 import ChartComponent from './ChartComponent'
-export default function GraphComponent({ data, data2 }) {
+const GraphComponent = forwardRef(({ data, data2 },ref) =>{
   
   const [graph, setgraph] = useState('population')
   return (
-    <div className='container'>
+    <div ref={ref} className='container'>
       <div style={{ textAlign: 'center', gap: '10px' }}>
         <Button size='lg' style={{ fontSize: '14pt', margin: '4px' }} onClick={() => setgraph('population')}>Population</Button>
         <Button size='lg' style={{ fontSize: '14pt', margin: '4px' }} onClick={() => setgraph('language')}>Language</Button>
@@ -19,4 +19,5 @@ export default function GraphComponent({ data, data2 }) {
 
     </div>
   )
-}
+})
+export default GraphComponent
