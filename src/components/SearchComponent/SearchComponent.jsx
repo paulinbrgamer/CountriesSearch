@@ -12,7 +12,7 @@ export default function SearchComponent({searchFunc,Countries,scroll}) {
              style={{padding:'26px',fontSize:'16pt',maxWidth:'420px'}}
              onChange={searchFunc}/>
             <Button onClick={scroll}  className="p-4 text-lg"  >
-            <p>Graphcs</p>
+            <p>Graphics</p>
             </Button>
             <SearchContainer result={Countries}/>
         </div>
