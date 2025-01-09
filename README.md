@@ -34,8 +34,3 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ---
 
-## 📂 Estrutura do Projeto
-
-Abaixo está uma visão geral da estrutura do projeto:
-src/ ├── components/ # Componentes reutilizáveis da aplicação │ ├── GraphComponent/ # Componente de gráficos │ ├── Header/ # Cabeçalho da aplicação │ ├── SearchComponent/ # Campo de busca │ └── SearchContainer/ # Container para o gerenciamento de filtros e resultados ├── ui/ # Estilização ou componentes de UI genéricos ├── lib/ # Funções e bibliotecas utilitárias ├── services/ # Configuração e funções para comunicação com APIs externas ├── App.jsx # Componente principal da aplicação ├── App.css # Estilização principal ├── index.css # Estilos globais └── main.jsx
-
