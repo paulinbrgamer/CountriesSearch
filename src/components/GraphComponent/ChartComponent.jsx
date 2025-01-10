@@ -2,10 +2,9 @@ import React from 'react'
 import '../../App.css'
 export default function ChartComponent({ data ,maxValue,heigth}) {
     const size = maxValue
-    console.log(size);
     
     return (
-        <div style={{ display: 'grid', alignItems: "center", gridTemplateColumns: '2fr 4fr 1fr', width: '100%', padding: "4px  " }}>
+        <div style={{ display: 'grid', alignItems: "center", gridTemplateColumns: '1fr 4fr 1fr', width: '100%', padding: "4px  ",overflow:'hidden'  ,whiteSpace: 'nowrap' }}>
             <div>
                 {Object.keys(data).map((k, idx) => idx < heigth ? <p style={{ fontSize: "12pt", padding: '5px', margin: '2px' }} key={k}>{k}</p> : null)}
 
